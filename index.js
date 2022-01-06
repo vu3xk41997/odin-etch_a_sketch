@@ -1,13 +1,13 @@
-let input = document.getElementById('myRange');
 // When browser loads
 genDivs(20);
 hoverChangeColor("black");
 
-input.addEventListener('change', function(e){
-    input.value = e.target.value;
+let range = document.getElementById('myRange');
+range.addEventListener('change', function(e){
+    range.value = e.target.value;
     document.getElementById('grid').innerHTML = "";
-    genDivs(input.value);
-    hoverChangeColor(getRandomColor());
+    genDivs(range.value);
+    hoverChangeColor(pickColor.value);
 });
 
 function genDivs(num){
@@ -32,15 +32,20 @@ pickColor.addEventListener('input', function(e){
     hoverChangeColor(e.target.value);
 });
 
+// button - color
+let color = document.getElementById('color');
+color.addEventListener('click', function(e){
+    hoverChangeColor(pickColor.value);
+});
+
 // buttons - rainbow
-function getRandomColor() {
-    let letters = '0123456789ABCDEF';
-    let color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+let rainbow = document.getElementById('rainbow');
+rainbow.addEventListener('click', function(){
+    let cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => cell.addEventListener('mouseover', function(){
+        cell.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    }));
+});
 
 // buttons - eraser
 let eraser = document.getElementById('eraser');
@@ -52,6 +57,6 @@ eraser.addEventListener('click',function(){
 let clear = document.getElementById('clear');
 clear.addEventListener('click',function(){
     document.getElementById('grid').innerHTML = "";
-    genDivs(input.value);
+    genDivs(range.value);
     hoverChangeColor(pickColor.value);
 })
