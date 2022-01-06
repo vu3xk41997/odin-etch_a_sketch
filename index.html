@@ -10,18 +10,17 @@
 </head>
 <body>
     <div id="header">
-        <h2>Etch-A-Sketch</h2>
+        <h1>Etch-A-Sketch</h1>
     </div>
     <div id="container">
         <div id="options">
-            <p>Color</p>
-            <p>Rainbow</p>
-            <p>Eraser</p>
+            <input type="color" id="pickColor" value="#000000">
+            <button id="rainbow">Rainbow</button>
+            <button id="eraser">Eraser</button>
+            <button id="clear">Clear</button>
+            <input type="range" min="10" max="60" value="20" step="10" id="myRange">Size
         </div>
-        <div id="grid">
-
-        </div>
-        <input type="range" min="10" max="40" value="20" step="10" id="myRange">Size
+        <div id="grid"></div>
     </div>
     <div id="footer">
         Copyright © Mojito 2022

@@ -15,3 +15,4 @@ Project for JavaScript foundation.
 * document.getElementById
 * appendChild
 * add style
+* addEventListener
